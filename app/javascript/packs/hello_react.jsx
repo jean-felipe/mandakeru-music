@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom'
 import 'bulma/css/bulma.css';
 // import './../node_modules/bulma/css/bulma.css';
 
-import Main from '../components/Main'
+import Main from '../components/Main/Main'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

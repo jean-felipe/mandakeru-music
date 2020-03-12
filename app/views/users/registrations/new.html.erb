@@ -1,0 +1,40 @@
+<div class="signup-container">
+  <h2>Cadastro</h2>
+  <div class="signup-form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+       <div class="field">
+        <p>Nome:<br />
+          <%= f.text_field :name, autofocus: true, class:"form-control" ,autocomplete: "nome" %>
+        </p>
+      </div>
+
+      <div class="field">
+        <p>Email:<br />
+          <%= f.email_field :email, autofocus: true, class:"form-control" ,autocomplete: "email" %>
+        </p>
+      </div>
+
+      <div class="field">
+        <p>Senha de acesso:
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>  minimo)</em>
+          <% end %><br />
+          <%= f.password_field :password, class:"form-control" ,autocomplete: "new-password" %>
+        </p>
+      </div>
+
+      <div class="field">
+        <p>Repita a senha:<br />
+          <%= f.password_field :password_confirmation, class:"form-control" ,autocomplete: "new-password" %>
+        </p>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Cadastrar",  class: "btn-register" %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
