@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_010320) do
+ActiveRecord::Schema.define(version: 2020_03_13_221056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,23 @@ ActiveRecord::Schema.define(version: 2020_03_12_010320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "event_genres", force: :cascade do |t|
-    t.bigint "event_id", null: false
-    t.bigint "genre_id", null: false
+  create_table "artists_line_ups", force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.bigint "line_up_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id", "genre_id"], name: "index_event_genres_on_event_id_and_genre_id"
-    t.index ["event_id"], name: "index_event_genres_on_event_id"
-    t.index ["genre_id"], name: "index_event_genres_on_genre_id"
+    t.index ["artist_id"], name: "index_artists_line_ups_on_artist_id"
+    t.index ["line_up_id"], name: "index_artists_line_ups_on_line_up_id"
+  end
+
+  create_table "event_artists", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_event_artists_on_artist_id"
+    t.index ["event_id", "artist_id"], name: "index_event_artists_on_event_id_and_artist_id"
+    t.index ["event_id"], name: "index_event_artists_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -54,19 +63,20 @@ ActiveRecord::Schema.define(version: 2020_03_12_010320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "events_genres", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id", "genre_id"], name: "index_events_genres_on_event_id_and_genre_id"
+    t.index ["event_id"], name: "index_events_genres_on_event_id"
+    t.index ["genre_id"], name: "index_events_genres_on_genre_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "line_up_artists", force: :cascade do |t|
-    t.bigint "line_up_id", null: false
-    t.bigint "artist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["artist_id"], name: "index_line_up_artists_on_artist_id"
-    t.index ["line_up_id"], name: "index_line_up_artists_on_line_up_id"
   end
 
   create_table "line_ups", force: :cascade do |t|
@@ -91,9 +101,11 @@ ActiveRecord::Schema.define(version: 2020_03_12_010320) do
   end
 
   add_foreign_key "addresses", "events"
-  add_foreign_key "event_genres", "events"
-  add_foreign_key "event_genres", "genres"
-  add_foreign_key "line_up_artists", "artists"
-  add_foreign_key "line_up_artists", "line_ups"
+  add_foreign_key "artists_line_ups", "artists"
+  add_foreign_key "artists_line_ups", "line_ups"
+  add_foreign_key "event_artists", "artists"
+  add_foreign_key "event_artists", "events"
+  add_foreign_key "events_genres", "events"
+  add_foreign_key "events_genres", "genres"
   add_foreign_key "line_ups", "events"
 end

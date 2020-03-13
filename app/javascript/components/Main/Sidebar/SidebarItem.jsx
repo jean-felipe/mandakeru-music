@@ -7,7 +7,7 @@ function SidebarItem(props) {
 
   return(
     <a href={props.url} className="menu-link">
-      <i class={props.icon}></i>
+      <i className={props.icon}></i>
       <p className="title is-4 has-text-white">{props.label}</p>
     </a>
   )

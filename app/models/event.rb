@@ -11,4 +11,12 @@
 #  updated_at :datetime         not null
 #
 class Event < ApplicationRecord
+  EVENT_TYPES = %w(festival concert)
+
+  enum event_type: EVENT_TYPES
+
+  has_one :line_up
+  has_and_belongs_to_many :genres
+
+  has_many :artists, through: :line_up 
 end

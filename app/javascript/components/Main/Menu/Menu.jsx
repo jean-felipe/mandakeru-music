@@ -38,7 +38,7 @@ class Menu extends Component {
                   <p className="control">
                     <a className="bd-tw-button button" href="#">
                       <span className="icon">
-                        <i class="far fa-user-circle"></i>
+                        <i className="far fa-user-circle"></i>
                       </span>
                       <span>
                         Sua Conta
@@ -48,7 +48,7 @@ class Menu extends Component {
                   <p className="control">
                     <a className="button is-danger" href="#">
                       <span className="icon">
-                        <i class="fas fa-sign-out-alt"></i>
+                        <i className="fas fa-sign-out-alt"></i>
                       </span>
                       <span>Sair</span>
                     </a>

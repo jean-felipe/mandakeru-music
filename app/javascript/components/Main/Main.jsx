@@ -7,7 +7,8 @@ import './Main.scss'
 
 class Main extends Component {
   render() {
-    const name = this.props.data.user.name
+    const name = this.props.data.user.name;
+    console.log(this.props)
     return (
       <div className="dashboard">
         <Sidebar storeName={name}/>
