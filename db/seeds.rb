@@ -45,7 +45,7 @@ puts 'Creating Events'
 
 15.times do |i|
   event = Event.create(
-    date: Date.today + ([0, 1, 2].sample).days,
+    date: DateTime.now + ([0, 1, 2].sample).days,
     event_type: [0, 1].sample,
     name: Faker::Games::LeagueOfLegends.masteries,
     private: [true, false].sample

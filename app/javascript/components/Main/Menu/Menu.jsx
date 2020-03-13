@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 import './Menu.scss';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-// import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
-// import { logout } from '../../../Auth/authActions'
-
-
 class Menu extends Component {
   render() {
     return(
@@ -63,6 +55,4 @@ class Menu extends Component {
   }
 }
 
-// const mapStateToProps = state => ({user: state.auth.user})
-// const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch)
 export default Menu
