@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
 
+import EventCard from './EventCard'
+import './index.scss'
+
 class Events extends Component {
-  renderTableData() {
-    return this.props.data.events.map((event, index) => {
-      const { id, name, event_date, event_private, event_type } = event //destructuring
+  renderEventsCards() {
+    return this.props.data.events.map((event) => {
       return (
-        <tr key={id}>
-          <td>{id}</td>
-          <td>{name}</td>
-          <td>{event_date}</td>
-          <td>{event_private}</td>
-          <td>{event_type}</td>
-        </tr>
+        <EventCard styleClass={'card-item column is-4'} event={event} key={event.date}/>
       )
     })
   }
 
   render() {
-    console.log(this.props)
-    console.log(this.renderTableData())
     const events = this.props.data.events
-
+    console.table(events)
     return (
       <div>
         <div className="card">
@@ -37,21 +31,8 @@ class Events extends Component {
             </div>
 
             <br />
-            <div className="content">
-              <table className="table is-striped">
-                <thead>
-                  <tr>
-                    <th><abbr title="Position">id</abbr></th>
-                    <th>name</th>
-                    <th><abbr title="Played">date</abbr></th>
-                    <th><abbr title="Won">event_private</abbr></th>
-                    <th><abbr title="Drawn">event_type</abbr></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.renderTableData()}
-                </tbody>
-              </table>
+            <div className="item columns">
+              { this.renderEventsCards() }              
             </div>
           </div>
         </div>
