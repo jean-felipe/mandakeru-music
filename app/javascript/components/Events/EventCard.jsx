@@ -6,7 +6,6 @@ import Event from './Event'
 export default class EventCard extends Component {
   renderEvents() {
     return this.props.event.events.map((event) => {
-      console.log(event)
      return(
        <Event event={event} key={event.id} />
      )

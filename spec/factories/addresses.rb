@@ -4,6 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  city         :string           not null
+#  complement   :string
 #  neighborhood :string           not null
 #  number       :integer          not null
 #  state        :string           not null

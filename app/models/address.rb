@@ -4,6 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  city         :string           not null
+#  complement   :string
 #  neighborhood :string           not null
 #  number       :integer          not null
 #  state        :string           not null
@@ -22,4 +23,9 @@
 #  fk_rails_...  (event_id => events.id)
 #
 class Address < ApplicationRecord
+  belongs_to :event
+
+  def full_address
+    [street, number, complement, city, state, zipcode].join(', ')
+  end
 end

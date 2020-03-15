@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 import EventForm from './EventForm';
 
 export default class NewEvent extends Component {
-  componentDidMount() {
-    console.log('did')
+  artists = []
+  genres = []
+
+  componentWillMount() {
+    axios.get('/api/v1/artists').then((response) => {
+      response.data.forEach((artist) => {
+        this.artists.push(artist)
+      })
+    })
+
+    axios.get('/api/v1/genres').then((response) => {
+      response.data.forEach((genre) => {
+        this.genres.push(genre)
+      })
+    })
   }
 
   render() {
@@ -24,7 +38,7 @@ export default class NewEvent extends Component {
 
             <br />
             <div className="item columns">
-              <EventForm />
+              <EventForm artists={this.artists} genres={this.genres}/>
             </div>
           </div>
         </div>

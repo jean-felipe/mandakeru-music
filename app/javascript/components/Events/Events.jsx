@@ -12,6 +12,10 @@ class Events extends Component {
     })
   }
 
+  goToEventForm() {
+    window.location = '/events/new'
+  }
+
   render() {
     const events = this.props.data.events
     console.table(events)
@@ -26,7 +30,7 @@ class Events extends Component {
               </div>
 
               <div className="media-action">
-                <button className="button is-success">Novo Evento</button>
+                <a href="/events/new" className="button is-success">Novo Evento</a>
               </div>
             </div>
 

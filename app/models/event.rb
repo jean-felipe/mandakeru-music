@@ -16,7 +16,11 @@ class Event < ApplicationRecord
   enum event_type: EVENT_TYPES
 
   has_one :line_up
+  has_one :address
   has_and_belongs_to_many :genres
 
   has_many :artists, through: :line_up 
+
+  validates :date, :event_type, :name, presence: true
+  
 end

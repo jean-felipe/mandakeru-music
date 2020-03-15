@@ -4,7 +4,7 @@ export default class Event extends Component {
   renderGenreList() {
     return this.props.event.genres.map((genre) => {
       return (
-      <p key={genre.id}>{genre.name}</p>
+      <li key={genre.id}>{genre.name}</li>
       )
     })
   }
@@ -16,18 +16,22 @@ export default class Event extends Component {
       )
     })
   }
+
   render() {
     event = this.props.event
     return(
-      <article class="message is-dark">
-        <div class="message-header">
+      <article className="message is-dark">
+        <div className="message-header">
           <p>{event.name}</p>
         </div>
-        <div class="message-body">
+        <div className="message-body">
           <p>Data: {event.event_date}</p>
           <p>Tipo: {event.event_type}</p>
           Generos: {this.renderGenreList()}
+          <br />
           Artistas: {this.renderArtistList()}
+          <br />
+          Endereço: {event.address}
         </div>
         
       </article>

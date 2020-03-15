@@ -21,6 +21,7 @@ module Events
               event_type: event.event_type,
               genres: event.genres.as_json,
               artists: event.artists.as_json,
+              address: event.address&.full_address
             }
           end
         }
