@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :artist do
-    name { "MyString" }
+    name { Faker::Name.unique.name }
     genre { 1 }
   end
 end

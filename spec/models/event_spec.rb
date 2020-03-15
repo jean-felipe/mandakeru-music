@@ -13,5 +13,20 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#associations' do
+    it { should have_one(:line_up) }
+    it { should have_one(:address) }
+    it { should have_many(:artists).through(:line_up) }
+    it { should have_and_belong_to_many(:genres) }
+  end
+
+  describe '#validations' do
+    it { should validate_presence_of(:date) }
+    it { should validate_presence_of(:event_type) }
+    it { should validate_presence_of(:name) }
+  end
+
+  describe '#enum' do
+    it { should define_enum_for(:event_type) }
+  end
 end

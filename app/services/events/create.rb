@@ -14,8 +14,7 @@ module Events
 
       if @new_event.save
         @new_event.genres = @genres
-
-        address = Address.new(@params[:address].merge(event: @new_event))
+        address = Address.new(@params[:address]&.merge(event: @new_event))
         address.save
 
         lineup = LineUp.new(name: @params[:lineup], event: @new_event)

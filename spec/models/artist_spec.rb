@@ -11,5 +11,11 @@
 require 'rails_helper'
 
 RSpec.describe Artist, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#associations' do
+    it { should have_and_belong_to_many(:line_ups)}
+  end
+
+  describe '#enum' do
+    it { should define_enum_for(:genre) }
+  end
 end

@@ -13,7 +13,7 @@
 FactoryBot.define do
   factory :event do
     name { "MyString" }
-    date { "2020-03-11 21:16:30" }
+    date { DateTime.now }
     private { false }
     event_type { 1 }
   end

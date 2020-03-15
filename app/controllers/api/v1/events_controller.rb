@@ -1,7 +1,7 @@
 module Api::V1
   class EventsController < ActionController::API
     before_action :load_filters, only: [:index]
-      
+
     def create
       render json: creator.process
     end

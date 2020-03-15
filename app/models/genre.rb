@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Genre < ApplicationRecord
+  has_and_belongs_to_many :events
 end
