@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import Events from '../Events/Events'
+import NewEvent from '../EventsForm/NewEvent';
 
 class ComponentLoader extends Component {
   components = {
-    eventList: Events
+    eventList: Events,
+    newEvent: NewEvent
   };
 
   render() {

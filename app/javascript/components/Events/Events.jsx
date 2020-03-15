@@ -22,7 +22,7 @@ class Events extends Component {
             <div className="media">
               <div className="media-content">
                 <p className="title is-4">Eventos</p>
-                <p className="subtitle is-6">Gerenciamento de produtos</p>
+                <p className="subtitle is-6"></p>
               </div>
 
               <div className="media-action">

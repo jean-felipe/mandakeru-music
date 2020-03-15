@@ -11,6 +11,15 @@ class EventsController < ApplicationController
     }
   end
 
+  def new
+    @props = {
+      user: current_user,
+      component: {
+        name: 'newEvent'
+      }
+    }
+  end
+
   private
 
   def reader
