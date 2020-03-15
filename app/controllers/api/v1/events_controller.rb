@@ -1,7 +1,20 @@
 module Api::V1
   class EventsController < ActionController::API
+    before_action :load_filters, only: [:index]
+      
     def create
       render json: creator.process
+    end
+
+    def index
+      if @filter.present?
+        @events = Event.joins(:genres).where('genres.id = ?', @filter)
+      else
+        @events = Event.all
+      end
+
+      render json: @events
+
     end
 
     private
@@ -21,6 +34,10 @@ module Api::V1
         genres: params.dig('event', 'genres').as_json,
         address: params.dig('event', 'address').as_json
       }
+    end
+
+    def load_filters
+      @filter = params.dig('filter', 'genre')
     end
   end
 end
