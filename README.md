@@ -1,24 +1,22 @@
-# README
+# Mandakeru Music
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project for demonstration of Rails + React, it is a simulation of an music events dashboard.
 
-Things you may want to cover:
+## Running the project
+This project uses the last version of Ruby on Rails, the ruby version should be `2.5.5`
 
-* Ruby version
+Simply create the database, migrate and seed it, after that run yarn install and then start the server.
 
-* System dependencies
+## Commands:
+* Create and migrate the database
+  `rails db:setup` or `rails db:create db:migrate db:seed`
 
-* Configuration
+* Yarn install
+  `yarn install`
 
-* Database creation
+* Start the server
+  `rails s`
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Issues
+If you got some issues when running the project, just open an issue on this repository and describe what happened. 

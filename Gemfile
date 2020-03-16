@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'annotate'
-gem 'rack-cors'
+# gem 'rack-cors'
 gem 'devise'
 gem 'font-awesome-sass'
 
@@ -39,6 +39,7 @@ group :development, :test do
   gem "pry"
   gem 'factory_bot_rails', '~> 4'
   gem 'faker'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -48,12 +49,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rspec-rails'
 end
 
 group :test do
   gem 'airborne'
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
 
